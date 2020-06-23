@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 int main(int argc, char *argv[])
 {
@@ -26,7 +25,7 @@ int main(int argc, char *argv[])
 		getline(&line, &len, fp);
 		char prev = *line;
 		int cnt = 1;
-		for(char *c = line + 1; *c != '\0'; c++)
+		for(char *c = line + 1; *c != '\n'; c++)//prev_BUG: '\n' instead of '\0' here.
 		{
 			if(*c == prev)
 			{
